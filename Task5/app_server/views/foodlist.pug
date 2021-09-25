@@ -1,0 +1,21 @@
+extends layout
+include _includes/sharedHTMLfunctions
+block content
+  .row.banner 
+    .col-12 
+      h1= title
+       small &nbsp;Popular Chinese Food
+  .row 
+    each food in foodArray
+      .col-md-3
+       img(src=food.imgName alt='')   
+       .card       
+          h4 
+            a(href='/location')= food.name
+            small &nbsp;
+            +outputRating(food.rating)
+          h6= food.type 
+           
+  
+   
+    
