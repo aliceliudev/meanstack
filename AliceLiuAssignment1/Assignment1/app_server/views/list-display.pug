@@ -1,0 +1,33 @@
+extends layout
+include _includes/sharedHTMLfunctions
+block content  
+  .container.px-4.px-lg-5.my-5
+    .text-center.text-white
+      h1=pageHeader.title
+      h5=pageHeader.des
+  // Section
+  .row 
+   each book in bookArray 
+    .col-md-4 
+      .card.h-100  
+        .badge.bg-dark 
+          img(src=book.imgName alt='...')
+          // Product details
+          .card-body.p-4
+            .text-center
+              // Product name
+              h5.fw-bolder=book.name
+              // Product price
+              p=book.price
+              h5=book.status
+              h7=book.author  
+              <br><br>
+              small &nbsp;
+              +outputRating(book.rating)
+              <br><br>
+
+              a.btn.btn-primary  Order
+     
+          
+            a.btn.View 
+  

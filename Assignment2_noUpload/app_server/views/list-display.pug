@@ -1,0 +1,35 @@
+extends layout
+include _includes/sharedHTMLfunctions
+block content  
+  .container.px-4.px-lg-5.my-5
+    .text-center.text-white
+      h1=pageHeader.title
+      .page-heading=pageHeader.des
+  // Section
+  .row 
+   each book in bookArray 
+    .col-md-4 
+      .card.h-100  
+        .badge.bg-dark 
+          img(src=book.imgName alt='...')            
+          // Product details
+          .card-body.p-4
+            .price= book.price
+            .text-center
+              // Product name
+              h5.fw-bolder= book.name
+              // Product price
+              p= book.author
+              each status in book.bookStatus
+                .col-md-6  
+                 .ribbon= status.stat               
+                 <br><br>
+                 small &nbsp;
+                 +outputRating(status.rating)
+                 <br><br>
+                 h5 #{status.discount} 
+                 h6 #{status.bookform}
+                 a.btn.btn-primary  Order Now 
+                  
+                             
+  
